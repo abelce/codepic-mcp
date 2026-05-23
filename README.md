@@ -43,6 +43,24 @@ Add CodePic to your `claude_desktop_config.json`:
 
 Replace `cpk_your_api_key_here` with an API key from CodePic.
 
+## Available MCP Tools
+
+- `list_templates` - list available diagram templates.
+- `create_from_template` - create a new diagram from a template.
+- `create_diagram` - create a custom diagram with nodes and edges.
+- `get_diagram` - fetch the current diagram structure by `documentId` before making targeted follow-up edits.
+- `update_diagram` - update an existing diagram by replacing, adding, or removing nodes and edges.
+
+## Iterate on an Existing Diagram
+
+Use `get_diagram` when you already have a CodePic document and want the AI agent to inspect it before changing it. This keeps the workflow grounded in the current diagram instead of guessing from memory.
+
+Example prompt:
+
+```text
+Use get_diagram to inspect document <documentId>, then update the diagram by adding a Redis cache between the API server and Postgres database.
+```
+
 ## Examples
 
 | Example | What It Generates | Prompt |
@@ -52,6 +70,7 @@ Replace `cpk_your_api_key_here` with an API key from CodePic.
 | [OAuth sequence flow](examples/oauth-sequence-flow.md) | PKCE login sequence diagram | Browser, app server, identity provider, database |
 | [CI/CD pipeline](examples/cicd-pipeline.md) | GitHub Actions deployment pipeline | Type-check, lint, build, preview, production |
 | [Data pipeline](examples/data-pipeline.md) | Analytics pipeline diagram | Segment, Snowflake, dbt, Metabase |
+| [Iterate existing diagram](examples/iterate-existing-diagram.md) | Read an existing document, then update it | `get_diagram` + `update_diagram` |
 
 ## Useful Links
 
