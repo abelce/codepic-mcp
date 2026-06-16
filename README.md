@@ -12,6 +12,8 @@ CodePic MCP lets an AI coding agent create diagrams directly in CodePic instead 
 
 ## Quick Start
 
+It's a remote Streamable HTTP server — no local install. First create a free API key (the `cpk_...` token) at **https://codepic.cc/settings/api-keys** (sign in → *New API key* → copy), then add the config for your client and replace `cpk_your_api_key_here`.
+
 ### Cursor
 
 Create `.cursor/mcp.json` in your project:
@@ -27,6 +29,15 @@ Create `.cursor/mcp.json` in your project:
     }
   }
 }
+```
+
+### Claude Code
+
+Add it with one command:
+
+```bash
+claude mcp add --transport http codepic https://codepic.cc/api/mcp/mcp \
+  --header "Authorization: Bearer cpk_your_api_key_here"
 ```
 
 ### Claude Desktop
@@ -47,7 +58,74 @@ Add CodePic to your `claude_desktop_config.json`:
 }
 ```
 
-Replace `cpk_your_api_key_here` with your own key. Create a free API key (the `cpk_...` token) at **https://codepic.cc/settings/api-keys** — sign in, click *New API key*, and copy it.
+### VS Code (GitHub Copilot)
+
+Add CodePic to `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "codepic": {
+      "type": "http",
+      "url": "https://codepic.cc/api/mcp/mcp",
+      "headers": {
+        "Authorization": "Bearer cpk_your_api_key_here"
+      }
+    }
+  }
+}
+```
+
+### Codex CLI
+
+Add CodePic to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.codepic]
+url = "https://codepic.cc/api/mcp/mcp"
+
+[mcp_servers.codepic.headers]
+Authorization = "Bearer cpk_your_api_key_here"
+```
+
+### Windsurf
+
+Add CodePic to `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "codepic": {
+      "serverUrl": "https://codepic.cc/api/mcp/mcp",
+      "headers": {
+        "Authorization": "Bearer cpk_your_api_key_here"
+      }
+    }
+  }
+}
+```
+
+### Cline
+
+Open Cline's MCP settings (`cline_mcp_settings.json`) and add:
+
+```json
+{
+  "mcpServers": {
+    "codepic": {
+      "type": "streamableHttp",
+      "url": "https://codepic.cc/api/mcp/mcp",
+      "headers": {
+        "Authorization": "Bearer cpk_your_api_key_here"
+      }
+    }
+  }
+}
+```
+
+### Other clients
+
+Any MCP client that supports remote Streamable HTTP works — point it at the endpoint `https://codepic.cc/api/mcp/mcp` with header `Authorization: Bearer cpk_...`.
 
 ## Available MCP Tools
 
