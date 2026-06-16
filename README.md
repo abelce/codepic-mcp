@@ -1,4 +1,10 @@
-# CodePic MCP Examples
+# CodePic MCP
+
+> Let your AI coding agent draw **editable** diagrams — not another Mermaid snippet you have to paste.
+
+[![Server](https://img.shields.io/badge/MCP-Streamable_HTTP-blue)](https://codepic.cc/tools/mcp)
+[![Website](https://img.shields.io/badge/website-codepic.cc-111)](https://codepic.cc)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 Generate editable hand-drawn diagrams from Cursor, Claude Desktop, and other MCP clients.
 
@@ -41,7 +47,7 @@ Add CodePic to your `claude_desktop_config.json`:
 }
 ```
 
-Replace `cpk_your_api_key_here` with an API key from CodePic.
+Replace `cpk_your_api_key_here` with your own key. Create a free API key (the `cpk_...` token) at **https://codepic.cc/settings/api-keys** — sign in, click *New API key*, and copy it.
 
 ## Available MCP Tools
 
@@ -76,6 +82,7 @@ Use get_diagram to inspect document <documentId>, then update the diagram by add
 
 - CodePic: https://codepic.cc
 - MCP guide: https://codepic.cc/tools/mcp
+- API keys (get yours): https://codepic.cc/settings/api-keys
 - ER diagram maker: https://codepic.cc/tools/er-diagram-maker
 - Flowchart maker: https://codepic.cc/tools/flowchart-maker
 - Wireframe tool: https://codepic.cc/tools/wireframe-tool
@@ -87,4 +94,8 @@ If you share this project, lead with the workflow:
 > I connected Cursor to a diagram editor through MCP, so it can generate editable architecture diagrams instead of Mermaid text.
 
 Avoid generic product claims like "best diagram tool". Developer communities respond better to a concrete workflow and real examples.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
 
